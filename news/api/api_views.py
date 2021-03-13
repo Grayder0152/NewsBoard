@@ -1,4 +1,4 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView, UpdateAPIView
 from rest_framework.response import Response
 
 from .serializers import ArticleSerializers, CommentSerializers
@@ -47,3 +47,14 @@ class CommentAPIView(BaseCommentAPI, RetrieveUpdateDestroyAPIView):
 
     def update(self, request, *args, **kwargs):
         return super().update(get_article_id(request, **kwargs), *args, **kwargs)
+
+
+class Upvote(BaseArticleAPI, ListCreateAPIView):
+    lookup_field = 'link'
+
+    def list(self, request, *args, **kwargs):
+        article = Article.objects.get(link=kwargs.get('link'))
+        article.amount_upvotes += 1
+        article.save()
+        serializer = self.get_serializer(article)
+        return Response(serializer.data)

@@ -1,0 +1,27 @@
+{% extends 'news/base.html' %}
+{% block title %}News Board| {{article.title}}{% endblock %}
+
+{% block content %}
+<center><h1 class="mb-5">{{article.title}}</h1></center>
+<div>
+    <div class="d-flex align-items-center justify-content-between border-bottom">
+        <h3>{{ article.author_name }}</h3>
+        <h6>{{ article.creation_data }}</h6>
+        <h6>Amount of upvotes: {{ article.amount_upvotes }}</h6>
+    </div>
+    <p class="fs-4 text-secondary p-5">{{ article.text }}</p>
+    <div class="mb-5">
+        {% for comment in comments %}
+        <div class="media border p-3">
+            <div class="media-body">
+                <div class="d-flex justify-content-between">
+                    <h3>{{ comment.author_name }}</h3>
+                    <i>Posted on {{ comment.creation_data }}</i>
+                </div>
+                <p>{{  comment.content }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

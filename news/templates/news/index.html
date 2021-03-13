@@ -1,0 +1,24 @@
+{% extends 'news/base.html' %}
+{% block title %}News Board{% endblock %}
+
+{% block content %}
+	<center><h1 class="mb-5">News Board</h1></center>
+	{% if article_list %}
+		{% for article in article_list %}
+			<a href="{% url 'article' id=article.id %}" style="text-decoration:none;">
+				<div class="alert alert-warning mt-2">
+					<div class="d-flex justify-content-between">
+						<h3>{{ article.title }}</h3>
+						<i>{{ article.creation_data }}</i>
+					</div>
+					<p>{{ article.text|truncatewords:50  }}</p>
+				</div>
+			</a>
+		{% endfor %}
+	{% else %}
+		<div class="alert alert-danger" role="alert">
+			<p>Not Found</p>
+		</div>
+	{% endif %}
+
+{% endblock %}
