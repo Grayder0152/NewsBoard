@@ -8,29 +8,58 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creation_data', models.DateField(auto_created=True, auto_now=True)),
-                ('title', models.CharField(max_length=64, verbose_name='Article title')),
-                ('link', models.SlugField(max_length=32, unique=True)),
-                ('amount_upvotes', models.PositiveIntegerField()),
-                ('author_name', models.CharField(max_length=32, verbose_name='Author name')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("creation_data", models.DateField(auto_created=True, auto_now=True)),
+                (
+                    "title",
+                    models.CharField(max_length=64, verbose_name="Article title"),
+                ),
+                ("link", models.SlugField(max_length=32, unique=True)),
+                ("amount_upvotes", models.PositiveIntegerField()),
+                (
+                    "author_name",
+                    models.CharField(max_length=32, verbose_name="Author name"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creation_data', models.DateField(auto_created=True, auto_now=True)),
-                ('author_name', models.CharField(max_length=32, verbose_name='Author name')),
-                ('content', models.TextField()),
-                ('article', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news.article')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("creation_data", models.DateField(auto_created=True, auto_now=True)),
+                (
+                    "author_name",
+                    models.CharField(max_length=32, verbose_name="Author name"),
+                ),
+                ("content", models.TextField()),
+                (
+                    "article",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="news.article"
+                    ),
+                ),
             ],
         ),
     ]

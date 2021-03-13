@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+{% block title %}Create Article{% endblock %}
+
+{% block content %}
+<h1>Create task</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.author_name }}<br>
+    {{ form.title }}<br>
+    {{ form.link }}<br>
+    {{ form.text }}<br>
+
+    <button type="submite" class="btn btn-success">Add</button>
+    <span>{{ error }}</span>
+</form>
+
+{% endblock %}
