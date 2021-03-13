@@ -7,7 +7,8 @@ SECRET_KEY = '$p$=#2neg8$hf5ag^na%m&%pas(jv%x2oktcep9smrmvhn517x'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://newsboardd.herokuapp.com'
+    'newsboardd.herokuapp.com',
+    '127.0.0.1'
 ]
 
 INSTALLED_APPS = [
