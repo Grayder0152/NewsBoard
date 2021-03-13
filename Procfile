@@ -1,1 +1,1 @@
-web:gunicorn "NewsBoard.wsgi"
+web: gunicorn NewsBoard.wsgi
