@@ -55,11 +55,11 @@ WSGI_APPLICATION = 'NewsBoard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'newsboard',
-        'USER': 'admin',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'd8ina69615un4m',
+        'USER': 'zihhyfermxttyt',
+        'PASSWORD': 'c8f1b1e3f6c84246da79e89803c1ca02206e952b31bcf9cb0e101116334e5772',
+        'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
