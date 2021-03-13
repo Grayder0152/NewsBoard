@@ -6,7 +6,9 @@ SECRET_KEY = '$p$=#2neg8$hf5ag^na%m&%pas(jv%x2oktcep9smrmvhn517x'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://newsboardd.herokuapp.com'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -86,3 +88,4 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
