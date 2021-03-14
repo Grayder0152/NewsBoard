@@ -23,16 +23,31 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("creation_data", models.DateField(auto_created=True, auto_now=True)),
+                ("creation_data",
+                 models.DateField(
+                     auto_created=True,
+                     auto_now=True)
+                 ),
                 (
                     "title",
-                    models.CharField(max_length=64, verbose_name="Article title"),
+                    models.CharField(
+                        max_length=64,
+                        verbose_name="Article title"
+                    ),
                 ),
-                ("link", models.SlugField(max_length=32, unique=True)),
-                ("amount_upvotes", models.PositiveIntegerField()),
+                ("link",
+                 models.SlugField(
+                    max_length=32,
+                    unique=True)
+                 ),
+                ("amount_upvotes",
+                 models.PositiveIntegerField()),
                 (
                     "author_name",
-                    models.CharField(max_length=32, verbose_name="Author name"),
+                    models.CharField(
+                        max_length=32,
+                        verbose_name="Author name"
+                    ),
                 ),
             ],
         ),
@@ -48,16 +63,23 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("creation_data", models.DateField(auto_created=True, auto_now=True)),
+                ("creation_data", models.DateField(
+                    auto_created=True,
+                    auto_now=True)
+                 ),
                 (
                     "author_name",
-                    models.CharField(max_length=32, verbose_name="Author name"),
+                    models.CharField(
+                        max_length=32,
+                        verbose_name="Author name"
+                    ),
                 ),
                 ("content", models.TextField()),
                 (
                     "article",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="news.article"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="news.article"
                     ),
                 ),
             ],

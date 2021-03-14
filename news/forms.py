@@ -10,7 +10,10 @@ class ArticleForm(ModelForm):
         fields = ["author_name", "title", "link", "text"]
         widgets = {
             "author_name": TextInput(
-                attrs={"class": "form-control", "placeholder": "Enter your name"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Enter your name"
+                }
             ),
             "title": TextInput(
                 attrs={
@@ -19,9 +22,15 @@ class ArticleForm(ModelForm):
                 }
             ),
             "link": TextInput(
-                attrs={"class": "form-control", "placeholder": "Enter slug for article"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Enter slug for article"
+                }
             ),
             "text": Textarea(
-                attrs={"class": "form-control", "placeholder": "Enter text"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Enter text"
+                }
             ),
         }

@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="article",
             name="text",
-            field=models.TextField(default="type...", verbose_name="Type your article"),
+            field=models.TextField(
+                default="type...",
+                verbose_name="Type your article"
+            ),
         ),
     ]

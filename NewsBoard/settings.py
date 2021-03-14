@@ -4,7 +4,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
 
-SECRET_KEY = os.environ.get("SECRET_KEY", default="fre4axe2x2rv4tsdf3wcec433cfoo2")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    default="fre4axe2x2rv4tsdf3wcec433cfoo2"
+)
 
 ALLOWED_HOSTS = [
     "newsboardd.herokuapp.com",
@@ -24,7 +27,8 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.'
+                                'LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
 
@@ -75,13 +79,16 @@ AUTH_PASSWORD_VALIDATORS = [
                 "UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": "django.contrib.auth."
+                "password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": "django.contrib.auth."
+                "password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth."
+                "password_validation.NumericPasswordValidator",
     },
 ]
 

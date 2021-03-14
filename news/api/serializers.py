@@ -15,7 +15,14 @@ class ArticleSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ["title", "link", "creation_data", "amount_upvotes", "author_name", "text"]
+        fields = [
+            "title",
+            "link",
+            "creation_data",
+            "amount_upvotes",
+            "author_name",
+            "text"
+        ]
 
 
 class CommentSerializers(serializers.ModelSerializer):

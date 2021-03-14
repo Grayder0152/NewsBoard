@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="article",
             name="text",
-            field=models.TextField(default="Text", verbose_name="Type your article"),
+            field=models.TextField(
+                default="Text",
+                verbose_name="Type your article"
+            ),
         ),
     ]
