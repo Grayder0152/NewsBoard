@@ -1,5 +1,6 @@
 # NewsBoard
-*beta version*
+*beta version* 
+[Link](https://newsboardd.herokuapp.com/)
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
