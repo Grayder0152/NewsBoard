@@ -2,15 +2,15 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = '$p$=343fwe2neg8$hf5ag^na%m&%pas(jv%x2oktcep9smrmvhn517x'
-
 DEBUG = True
 
-# SECRET_KEY = os.environ.get("SECRET_KEY", default="foo")
-#
-# DEBUG = int(os.environ.get("DEBUG", default=0))
+SECRET_KEY = os.environ.get("SECRET_KEY", default="fre4axe2x2rv4tsdf3wcec433cfoo2")
 
-ALLOWED_HOSTS = ["newsboardd.herokuapp.com", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = [
+    "newsboardd.herokuapp.com",
+    "127.0.0.1",
+    "0.0.0.0"
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -61,10 +61,10 @@ WSGI_APPLICATION = "NewsBoard.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "d8ina69615un4m",
-        "USER": 'zihhyfermxttyt',
-        "PASSWORD": 'c8f1b1e3f6c84246da79e89803c1ca02206e952b31bcf9cb0e101116334e5772',
-        "HOST": "ec2-54-220-35-19.eu-west-1.compute.amazonaws.com",
+        "NAME": os.environ.get("POSRGRES_NAME", default="postgres"),
+        "USER": os.environ.get("POSRGRES_USER", default="admin"),
+        "PASSWORD": os.environ.get("POSRGRES_PASSWORD", default="12345"),
+        "HOST": os.environ.get("POSRGRES_HOST", default="localhost"),
         "PORT": "5432",
     }
 }
@@ -72,7 +72,7 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation."
-        "UserAttributeSimilarityValidator",
+                "UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
