@@ -7,9 +7,31 @@
     <div class="d-flex align-items-center justify-content-between border-bottom">
         <h3>{{ article.author_name }}</h3>
         <h6>{{ article.creation_data }}</h6>
-        <h6>Amount of upvotes: {{ article.amount_upvotes }}</h6>
+        <div class="d-flex align-items-center">
+            <h6>Amount of upvotes: {{ article.amount_upvotes }}</h6>
+            <a href="{% url 'upvote' id=article.id %}">
+                <button type="button" class="btn btn-primary ml-3" data-toggle="button" aria-pressed="false"
+                        autocomplete="off">
+                    Upvote
+                </button>
+            </a>
+        </div>
     </div>
     <p class="fs-4 text-secondary p-5">{{ article.text }}</p>
+    <div class="border-bottom">
+        <h3>Add comment</h3>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group d-flex flex-row">
+                <textarea class="form-control" id="comment" name="comment" placeholder="Enter your comment"
+                          required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2 mb-5">Add</button>
+        </form>
+    </div>
     <div class="mb-5">
         {% for comment in comments %}
         <div class="media border p-3">
@@ -18,7 +40,7 @@
                     <h3>{{ comment.author_name }}</h3>
                     <i>Posted on {{ comment.creation_data }}</i>
                 </div>
-                <p>{{  comment.content }}</p>
+                <p>{{ comment.content }}</p>
             </div>
         </div>
         {% endfor %}

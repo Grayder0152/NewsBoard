@@ -2,13 +2,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = '$p$=343fwe2neg8$hf5ag^na%m&%pas(jv%x2oktcep9smrmvhn517x'
+
+DEBUG = True
+
+# SECRET_KEY = os.environ.get("SECRET_KEY", default="foo")
 #
-# DEBUG = True
-
-SECRET_KEY = os.environ.get("SECRET_KEY", default="foo")
-
-DEBUG = int(os.environ.get("DEBUG", default=0))
+# DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = ["newsboardd.herokuapp.com", "127.0.0.1", "0.0.0.0"]
 
@@ -23,9 +23,13 @@ INSTALLED_APPS = [
     "rest_framework",
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -58,8 +62,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "d8ina69615un4m",
-        "USER": os.getenv("POSTGRESQL_USER"),
-        "PASSWORD": os.getenv("POSTGRESQL_PASSWORD"),
+        "USER": 'zihhyfermxttyt',
+        "PASSWORD": 'c8f1b1e3f6c84246da79e89803c1ca02206e952b31bcf9cb0e101116334e5772',
         "HOST": "ec2-54-220-35-19.eu-west-1.compute.amazonaws.com",
         "PORT": "5432",
     }
@@ -92,5 +96,3 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfile")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

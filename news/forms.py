@@ -1,5 +1,5 @@
-from .models import Article
 from django.forms import ModelForm, TextInput, Textarea
+from .models import Article
 
 
 class ArticleForm(ModelForm):

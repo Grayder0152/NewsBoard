@@ -2,23 +2,40 @@
 {% block title %}News Board{% endblock %}
 
 {% block content %}
-	<center><h1 class="mb-5">News Board</h1></center>
-	{% if article_list %}
-		{% for article in article_list %}
-			<a href="{% url 'article' id=article.id %}" style="text-decoration:none;">
-				<div class="alert alert-warning mt-2">
-					<div class="d-flex justify-content-between">
-						<h3>{{ article.title }}</h3>
-						<i>{{ article.creation_data }}</i>
-					</div>
-					<p>{{ article.text|truncatewords:50  }}</p>
-				</div>
-			</a>
-		{% endfor %}
-	{% else %}
-		<div class="alert alert-danger" role="alert">
-			<p>Not Found</p>
-		</div>
-	{% endif %}
+<center><h1 class="mb-5">News Board</h1></center>
+{% if article_list %}
+{% for article in article_list %}
+<a href="{% url 'article' id=article.id %}" style="text-decoration:none;">
+    <div class="alert alert-warning mt-2">
+        <div class="d-flex justify-content-between">
+            <h3>{{ article.title }}</h3>
+            <i>{{ article.creation_data }}</i>
+        </div>
+        <p>{{ article.text|truncatewords:50 }}</p>
+    </div>
+</a>
+{% endfor %}
+<nav class="d-flex flex-column align-items-center mb-5">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
+        {% endif %}
+    </ul>
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+</nav>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    <p>Article Not Found</p>
+</div>
+{% endif %}
 
 {% endblock %}
